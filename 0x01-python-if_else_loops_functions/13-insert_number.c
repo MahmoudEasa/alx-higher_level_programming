@@ -1,7 +1,7 @@
 #include "lists.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-void push(listint_t *new, listint_t *ptr);
 /**
  * insert_node - inserts a number into a sorted singly linked list
  * @head: pointer to the head of the node
@@ -12,20 +12,22 @@ void push(listint_t *new, listint_t *ptr);
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *ptr, *new;
+	listint_t *ptr, *new_node, *p = NULL;
 
 	if (!head)
 		return (NULL);
+	if (p)
+		printf(" ");
 
-	new = malloc(sizeof(new));
-	if (!new)
+	new_node = malloc(sizeof(new_node));
+	if (!new_node)
 		return (NULL);
 
-	new->n = number;
+	new_node->n = number;
 	if (!(*head) || (*head)->n > number)
 	{
-		new->next = *head;
-		(*head) = new;
+		new_node->next = *head;
+		(*head) = new_node;
 	}
 	else
 	{
@@ -34,26 +36,26 @@ listint_t *insert_node(listint_t **head, int number)
 		{
 			if (ptr->next->n > number)
 			{
-				push(new, ptr);
+				push(new_node, ptr);
 				break;
 			}
 			ptr = ptr->next;
 		}
 
 		if (!ptr->next)
-			push(new, ptr);
+			push(new_node, ptr);
 	}
-	return (new);
+	return (new_node);
 }
 
 /**
  * push - add node
- * @new: pointer to new node
+ * @new_node: pointer to new node
  * @ptr: pointer to the index to add the Node
  */
 
-void push(listint_t *new, listint_t *ptr)
+void push(listint_t *new_node, listint_t *ptr)
 {
-	new->next = ptr->next;
-	ptr->next = new;
+	new_node->next = ptr->next;
+	ptr->next = new_node;
 }
