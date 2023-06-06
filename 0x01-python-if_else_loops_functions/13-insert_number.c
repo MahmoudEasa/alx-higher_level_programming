@@ -12,12 +12,10 @@
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *ptr, *new_node, *p = NULL;
+	listint_t *ptr, *new_node;
 
 	if (!head)
 		return (NULL);
-	if (p)
-		printf(" ");
 
 	new_node = malloc(sizeof(new_node));
 	if (!new_node)
