@@ -8,4 +8,4 @@ if last_num > 5:
 elif last_num < 6 and last_num != 0:
     print("less than 6 and not 0")
 elif last_num == 0:
-    print("zero")
+    print("0")
