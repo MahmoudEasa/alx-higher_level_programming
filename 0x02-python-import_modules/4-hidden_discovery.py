@@ -2,7 +2,6 @@
 import dis
 import hidden_4
 if __name__ == "__main__":
-    for i in range(len(hidden_4.__code__.co_names)):
-        name = hidden_4.__code__.co_names[i]
+    for name in dir(hidden_4):
         if not name.startswith("__"):
             print(name)
