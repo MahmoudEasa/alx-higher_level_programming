@@ -9,7 +9,7 @@
 void print_python_list_info(PyObject *p)
 {
 	int len, i;
-	PyObject *item, *type;
+	char *type;
 
 	if (!PyList_Check(p))
 		return;
@@ -21,9 +21,8 @@ void print_python_list_info(PyObject *p)
 
 	for (i = 0; i < len; i++)
 	{
-		item = PyList_GetItem(p, i);
-		type = PyObject_Type(item);
-		printf("Element %d: %s", i, Py_TYPE(item)->tp_name);
+		type = Py_Type(((PyListObject *)p)->ob_item[i]->tp_name);
+		printf("Element %d: %s", i, type);
 	}
 }
 
