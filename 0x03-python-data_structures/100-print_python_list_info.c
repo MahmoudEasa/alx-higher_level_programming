@@ -8,7 +8,7 @@
 
 void print_python_list_info(PyObject *p)
 {
-	int len, i;
+	size_t len, i;
 	const char *type;
 
 	len = PyList_Size(p);
