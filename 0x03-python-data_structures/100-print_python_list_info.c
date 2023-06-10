@@ -24,7 +24,6 @@ void print_python_list_info(PyObject *p)
 		item = PyList_GetItem(p, i);
 		type = PyObject_Type(item);
 		printf("Element %d: %s", i, Py_TYPE(item)->tp_name);
-		Py_DECREF(type);
 	}
 }
 
