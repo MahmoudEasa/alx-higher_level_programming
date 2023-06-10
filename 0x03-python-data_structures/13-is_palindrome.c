@@ -32,7 +32,7 @@ int is_palindrome(listint_t **head)
 	current_rev = rev;
 	len /= 2;
 
-	while ((current && current_rev && len >= 0))
+	while ((current && current_rev && len > 0))
 	{
 		if (current->n != current_rev->n)
 		{
