@@ -3,6 +3,7 @@
 #include "lists.h"
 
 listint_t *push(listint_t **head, int n);
+
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: pointer to the first node
@@ -13,6 +14,7 @@ listint_t *push(listint_t **head, int n);
 int is_palindrome(listint_t **head)
 {
 	listint_t *current, *rev = NULL, *current_rev;
+	int len = 0;
 
 	if (!head || !(*head) || !(*head)->next)
 		return (1);
@@ -21,14 +23,16 @@ int is_palindrome(listint_t **head)
 
 	while (current)
 	{
+		len++;
 		push(&rev, current->n);
 		current = current->next;
 	}
 
 	current = *head;
 	current_rev = rev;
+	len /= 2;
 
-	while ((current && current_rev))
+	while ((current && current_rev && len >= 0))
 	{
 		if (current->n != current_rev->n)
 		{
@@ -37,6 +41,7 @@ int is_palindrome(listint_t **head)
 		}
 		current = current->next;
 		current_rev = current_rev->next;
+		len--;
 	}
 
 	free_listint(rev);
