@@ -9,7 +9,7 @@
 void print_python_list_info(PyObject *p)
 {
 	int len, i;
-	char *type;
+	const char *type;
 
 	if (!PyList_Check(p))
 		return;
