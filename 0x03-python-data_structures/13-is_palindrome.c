@@ -28,10 +28,7 @@ int is_palindrome(listint_t **head)
 		fast = fast->next->next;
 	}
 	if (fast)
-	{
-		len--;
 		odd = 1;
-	}
 	rev = *head;
 	while (i < len)
 	{
@@ -42,10 +39,10 @@ int is_palindrome(listint_t **head)
 		i++;
 	}
 	prev_next = prev;
+	if (odd == 1)
+		next = next->next;
 	while (prev_next && next)
 	{
-		if (odd)
-			next = next->next;
 		if (prev_next->n != next->n)
 		{
 			next = NULL;
