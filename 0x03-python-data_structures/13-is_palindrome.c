@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include "lists.h"
 
-listint_t *push(listint_t **head, int n);
-int pop(listint_t **head);
+void reverse_list(listint_t **prev, listint_t **next, listint_t **rev);
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
@@ -15,81 +14,65 @@ int pop(listint_t **head);
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow, *rev = NULL, *fast;
+	listint_t *slow, *rev = NULL, *fast, *prev = NULL, *next, *prev_next;
+	int len = 0, i = 0;
 
 	if (!head || !(*head) || !(*head)->next)
 		return (1);
-
 	slow = *head;
 	fast = *head;
-
 	while (fast && fast->next)
 	{
-		push(&rev, slow->n);
+		len++;
 		slow = slow->next;
 		fast = fast->next->next;
 	}
-
 	if (fast)
-		slow = slow->next;
-
-	while (rev && slow)
 	{
-		if (pop(&rev) != slow->n)
-		{
-			while (rev)
-			{
-				fast = rev->next;
-				free(rev);
-				rev = fast;
-			}
-			return (0);
-		}
+		len++;
 		slow = slow->next;
 	}
-
+	rev = *head;
+	while (i < len)
+	{
+		next = rev->next;
+		rev->next = prev;
+		prev = rev;
+		rev = next;
+		i++;
+	}
+	prev_next = prev;
+	while (prev_next && next)
+	{
+		if (prev_next->n != next->n)
+		{
+			next = NULL;
+			reverse_list(&prev, &next, &rev);
+			return (0);
+		}
+		prev_next = prev_next->next;
+		next = next->next;
+		i++;
+	}
+	reverse_list(&prev, &next, &rev);
 	return (1);
 }
 
 /**
- * push - add node to start
- * @head: the head of the node
- * @n: intger
- *
- * Return: pointer to new node
+ * reverse_list - reverse list
+ * @prev: pointer
+ * @next: pointer
+ * @rev: pointer
  */
 
-listint_t *push(listint_t **head, int n)
+void reverse_list(listint_t **prev, listint_t **next, listint_t **rev)
 {
-	listint_t *new_node;
-
-	new_node = malloc(sizeof(listint_t));
-	if (!new_node)
-		return (NULL);
-
-	new_node->n = n;
-	new_node->next = *head;
-	*head = new_node;
-
-	return (new_node);
-}
-
-/**
- * pop - delete node from start
- * @head: the head of the node
- *
- * Return: the data in the node
- */
-
-int pop(listint_t **head)
-{
-	listint_t *temp;
-	int n;
-
-	temp = *head;
-	*head = (*head)->next;
-	n = temp->n;
-	free(temp);
-	return (n);
+	while (*prev)
+	{
+		*next = (*prev)->next;
+		(*prev)->next = *rev;
+		*rev = *prev;
+		*prev = *next;
+	}
 }
 
