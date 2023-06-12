@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdio.h>
 #include "lists.h"
 
 listint_t *push(listint_t **head, int n);
+int pop(listint_t **head);
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
@@ -13,38 +15,38 @@ listint_t *push(listint_t **head, int n);
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *current, *rev = NULL, *current_rev;
-	int len = 0;
+	listint_t *slow, *rev = NULL, *fast;
 
 	if (!head || !(*head) || !(*head)->next)
 		return (1);
 
-	current = *head;
+	slow = *head;
+	fast = *head;
 
-	while (current)
+	while (fast && fast->next)
 	{
-		len++;
-		push(&rev, current->n);
-		current = current->next;
+		push(&rev, slow->n);
+		slow = slow->next;
+		fast = fast->next->next;
 	}
 
-	current = *head;
-	current_rev = rev;
-	len /= 2;
+	if (fast)
+		slow = slow->next;
 
-	while ((current && current_rev && len > 0))
+	while (rev && slow)
 	{
-		if (current->n != current_rev->n)
+		if (pop(&rev) != slow->n)
 		{
-			free_listint(rev);
+			while (rev)
+			{
+				fast = rev->next;
+				free(rev);
+				rev = fast;
+			}
 			return (0);
 		}
-		current = current->next;
-		current_rev = current_rev->next;
-		len--;
+		slow = slow->next;
 	}
-
-	free_listint(rev);
 
 	return (1);
 }
@@ -70,5 +72,24 @@ listint_t *push(listint_t **head, int n)
 	*head = new_node;
 
 	return (new_node);
+}
+
+/**
+ * pop - delete node from start
+ * @head: the head of the node
+ *
+ * Return: the data in the node
+ */
+
+int pop(listint_t **head)
+{
+	listint_t *temp;
+	int n;
+
+	temp = *head;
+	*head = (*head)->next;
+	n = temp->n;
+	free(temp);
+	return (n);
 }
 
