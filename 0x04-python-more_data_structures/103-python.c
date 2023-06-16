@@ -49,11 +49,11 @@ void print_python_bytes(PyObject *p)
 	{
 		str = PyBytes_AsString(p);
 		len = PyBytes_Size(p);
-		printf("size: %d\n", len);
-		printf("trying string: %s\n", str);
+		printf("  size: %d\n", len);
+		printf("  trying string: %s\n", str);
 		if (len > 10)
 			len = 9;
-		printf("first %d bytes: ", (len + 1));
+		printf("  first %d bytes: ", (len + 1));
 		for (i = 0; i <= len; i++)
 			printf("%02x ", (unsigned char)str[i]);
 		printf("\n");
