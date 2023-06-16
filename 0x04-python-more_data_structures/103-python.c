@@ -55,7 +55,11 @@ void print_python_bytes(PyObject *p)
 			len = 9;
 		printf("  first %d bytes: ", (len + 1));
 		for (i = 0; i <= len; i++)
-			printf("%02x ", (unsigned char)str[i]);
+		{
+			printf("%02x", (unsigned char)str[i]);
+			if (i < len)
+				printf(" ");
+		}
 		printf("\n");
 	}
 	else
