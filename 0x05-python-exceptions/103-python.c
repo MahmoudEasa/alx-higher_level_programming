@@ -1,6 +1,7 @@
 #include <Python.h>
 #include <stdio.h>
 #include <string.h>
+#include <float.h>
 #include "/usr/include/python3.4/listobject.h"
 #include "/usr/include/python3.4/bytesobject.h"
 #include "/usr/include/python3.4/floatobject.h"
@@ -18,6 +19,8 @@ void print_python_list(PyObject *p)
 	const char *type;
 	PyObject *item;
 	size_t i, len;
+
+	fflush(stdout);
 
 	printf("[*] Python list info\n");
 	if (PyList_Check(p))
@@ -50,12 +53,14 @@ void print_python_bytes(PyObject *p)
 	char *str;
 	int i, len;
 
+	fflush(stdout);
+
 	printf("[.] bytes object info\n");
 
 	if (PyBytes_Check(p))
 	{
-		str = PyBytes_FromString(p);
-		len = strlen(str);
+		str = PyBytes_AsString(p);
+		len = PyBytes_Size(p);
 
 		printf("  size: %d\n", len);
 		printf("  trying string: %s\n", str);
@@ -63,9 +68,9 @@ void print_python_bytes(PyObject *p)
 		if (len > 10)
 			len = 9;
 		printf("  first %d bytes: ", (len + 1));
-		for (i = 0; i <= len, i++)
+		for (i = 0; i <= len; i++)
 		{
-			printf("%02x", str[i]);
+			printf("%02x", (unsigned char)str[i]);
 			if (i < len)
 				printf(" ");
 		}
@@ -82,10 +87,18 @@ void print_python_bytes(PyObject *p)
 
 void print_python_float(PyObject *p)
 {
+	char *buffer = NULL;
+
+	fflush(stdout);
+
 	printf("[.] float object info\n");
 
-	if (PyObject_Check(p))
-		printf("  value: %f\n", ((PyFloatObject *)p)->op_fval);
+	if (PyFloat_Check(p))
+	{
+		buffer = PyOS_double_to_string(((PyFloatObject *)p)->ob_fval, 'r', 0,
+				Py_DTSF_ADD_DOT_0, NULL);
+		printf("  value: %s\n", buffer);
+	}
 	else
 		printf("  [ERROR] Invalid Float Object\n");
 }
