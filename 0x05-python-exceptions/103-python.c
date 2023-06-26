@@ -25,12 +25,12 @@ void print_python_list(PyObject *p)
 	printf("[*] Python list info\n");
 	if (PyList_Check(p))
 	{
-		len = PyList_Size(p);
+		len = ((PyVarObject *)p)->ob_size;
 		printf("[*] Size of the Python List = %ld\n", len);
 		printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 		for (i = 0; i < len; i++)
 		{
-			item = PyList_GET_ITEM(p, i);
+			item = ((PyListObject *)p)->ob_item[i];
 			type = item->ob_type->tp_name;
 			printf("Element %ld: %s\n", i, type);
 			if (strcmp(type, "bytes") == 0)
@@ -59,8 +59,8 @@ void print_python_bytes(PyObject *p)
 
 	if (PyBytes_Check(p))
 	{
-		str = PyBytes_AsString(p);
-		len = PyBytes_Size(p);
+		str = ((PyBytesObject *)p)->ob_sval;
+		len = ((PyVarObject *)p)->ob_size;
 
 		printf("  size: %d\n", len);
 		printf("  trying string: %s\n", str);
