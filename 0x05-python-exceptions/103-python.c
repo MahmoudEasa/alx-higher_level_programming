@@ -2,9 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <float.h>
-#include "/usr/include/python3.4/listobject.h"
-#include "/usr/include/python3.4/bytesobject.h"
-#include "/usr/include/python3.4/floatobject.h"
 
 void print_python_bytes(PyObject *p);
 void print_python_float(PyObject *p);
@@ -73,8 +70,9 @@ void print_python_bytes(PyObject *p)
 			printf("%02x", (unsigned char)str[i]);
 			if (i < len)
 				printf(" ");
+			else
+				printf("\n");
 		}
-		printf("\n");
 	}
 	else
 		printf("  [ERROR] Invalid Bytes Object\n");
