@@ -6,6 +6,12 @@
 class Square:
     """class Square"""
 
+    def __str__(self):
+        """Set Square to have the same behavior as my_print()"""
+
+        self.my_print()
+        return ("")
+
     def __init__(self, size=0, position=(0, 0)):
         """The Initial Attributes
 
@@ -69,19 +75,3 @@ class Square:
                 for c in range(self.__size):
                     print("#", end="")
                 print()
-
-    def __str__(self):
-        """Set Square to have the same behavior as my_print()"""
-
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-            for r in range(self.__size):
-                print(end=" " * self.__position[0])
-                for c in range(self.__size):
-                    print("#", end="")
-                print()
-
-        return ("")
