@@ -17,7 +17,6 @@ class Square:
         self.size = size
         self.position = position
 
-    """Private instance attribute: size: """
     @property
     def size(self):
         """Retrieve square"""
@@ -34,7 +33,6 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-    """Private instance attribute: position: """
     @property
     def position(self):
         return self.__position
