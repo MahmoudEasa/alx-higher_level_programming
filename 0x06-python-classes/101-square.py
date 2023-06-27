@@ -6,22 +6,18 @@
 class Square:
     """class Square"""
 
-    def __str__(self):
-        """Set Square to have the same behavior as my_print()"""
-
-        self.my_print()
-        return ("")
-
     def __init__(self, size=0, position=(0, 0)):
         """The Initial Attributes
 
             Attributes:
                 __size (int): Private instance attribute
                 __position (tuple): Private instance attribute
+                pehavior (int): attribute
         """
 
         self.size = size
         self.position = position
+        self.behavior = 0
 
     @property
     def size(self):
@@ -69,9 +65,23 @@ class Square:
             print()
         else:
             for i in range(self.__position[1]):
-                print()
+                if self.behavior == 1 and i == self.__position[1]:
+                    print(end="")
+                else:
+                    print()
             for r in range(self.__size):
                 print(end=" " * self.__position[0])
                 for c in range(self.__size):
                     print("#", end="")
-                print()
+
+                if self.behavior == 1 and r == self.__size - 1:
+                    print(end="")
+                else:
+                    print()
+
+    def __str__(self):
+        """Set Square to have the same behavior as my_print()"""
+
+        self.behavior = 1
+        self.my_print()
+        return ("")
