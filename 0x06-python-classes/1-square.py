@@ -4,9 +4,8 @@
 
 
 class Square:
-    """class Square
+    """class Square"""
 
-    """
     def __init__(self, size):
         """The Initial Attributes
 
