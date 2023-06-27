@@ -59,9 +59,7 @@ class Square:
 
         if self.__size == 0:
             print()
-            if self.__position[1] > 0:
-                print()
-            else:
+            if self.__position[1] == 0:
                 print(" " * self.__position[0], end="")
         else:
             if self.__position[1] > 0:
