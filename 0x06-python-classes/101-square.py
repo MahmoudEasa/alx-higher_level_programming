@@ -62,7 +62,8 @@ class Square:
         """prints in stdout the square with the character #"""
 
         if self.__size == 0:
-            print()
+            if self.behavior == 1:
+                print()
         else:
             for i in range(self.__position[1]):
                 if self.behavior == 1 and i == self.__position[1]:
