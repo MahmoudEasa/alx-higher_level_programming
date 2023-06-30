@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 import math
 
-"""
-    Class MagicClass that does Python bytecode
+"""Class MagicClass that does Python bytecode
 """
 
 
 class MagicClass:
+    """Class does Python bytecode"""
     def __init__(self, radius=0):
         if type(radius) is not int or type(radius) is not float:
             raise TypeError("radius must be a number")
