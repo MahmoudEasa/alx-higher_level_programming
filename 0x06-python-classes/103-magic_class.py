@@ -8,7 +8,7 @@ class MagicClass:
 
     def __init__(self, radius=0):
         """Initial Data
-        
+
             Args:
                 radius (int or float): the radius magic class
         """
