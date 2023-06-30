@@ -6,7 +6,12 @@ import math
 class MagicClass:
     """Class does Python bytecode"""
     def __init__(self, radius=None):
-        """Initial Data"""
+        """Initial Data
+
+        Args:
+            radius (int or float): radius of the MagicClass
+
+        """
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
             raise TypeError("radius must be a number")
