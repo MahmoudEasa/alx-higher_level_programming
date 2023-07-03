@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""Module to create and empty class Rectangle
+"""Module to Write a class Rectangle that
+    defines a rectangle by: (based on 0-rectangle.py)
 """
 
 
