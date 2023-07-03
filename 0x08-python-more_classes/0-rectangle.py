@@ -8,4 +8,3 @@ class Rectangle:
     """Class to defines a rectangle
     """
     pass
-
