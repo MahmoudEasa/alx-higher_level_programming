@@ -5,7 +5,7 @@ import sys
 """
 
 
-if sys.argc != 2:
+if len(sys.argv) != 2:
     print("Usage: nqueens N")
     exit(1)
 
