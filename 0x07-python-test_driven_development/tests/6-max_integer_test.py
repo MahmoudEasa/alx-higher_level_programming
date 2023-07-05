@@ -18,8 +18,8 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([4, 3, 1, 2]), 4)
         self.assertEqual(max_integer([4, 3, -1, 2]), 4)
         self.assertEqual(max_integer([-4, -3, -1, -2]), -1)
-        self.assertEqual(max_integer([4]), 16)
-        self.assertEqual(max_integer([]), 1)
+        self.assertEqual(max_integer([4]), 4)
+        self.assertEqual(max_integer([]), None)
 
 
 if __name__ == '__main__':
