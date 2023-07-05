@@ -49,10 +49,10 @@ def matrix_mul(m_a, m_b):
                 m_b_j_len = len(m_b[j])
                 if (type(m_a[i][j]) not in [int, float]):
                     raise TypeError("m_a should contain\
-                            only integers or floats")
+ only integers or floats")
                 if (type(m_b[i][j]) not in [int, float]):
                     raise TypeError("m_b should contain\
-                            only integers or floats")
+ only integers or floats")
 
                 if m_a_i_len != row_a_size:
                     raise TypeError("each row of m_a must be of the same size")
