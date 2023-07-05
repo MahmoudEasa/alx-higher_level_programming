@@ -123,8 +123,7 @@ def solution(arr, n):
                 result.pop()
             continue
         c += 1
-        if c == n and n_len < n:
-            n_len += 1
+        if c == n and len(index) > 0:
             print(result)
             result = []
             r = index[0] + 1
