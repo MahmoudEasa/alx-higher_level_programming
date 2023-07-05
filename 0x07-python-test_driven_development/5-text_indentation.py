@@ -17,14 +17,20 @@ def text_indentation(text):
 
     text_len = len(text)
 
+    found = 0
+
     for i in range(text_len):
-        if text[i] == " " and text[i-1] in [".", "?", ":"]:
+        if found and text[i] == " ":
             continue
         if text[i] == ".":
             print(".\n")
+            found = 1
         elif text[i] == "?":
             print("?\n")
+            found = 1
         elif text[i] == ":":
             print(":\n")
+            found = 1
         else:
             print(text[i], end="")
+            found = 0
