@@ -18,4 +18,5 @@ class MyList(list):
         """Function ot print sorted list
 
         """
-        print(sorted(self))
+        if len(self):
+            print(sorted(self))
