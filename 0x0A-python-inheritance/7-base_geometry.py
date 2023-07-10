@@ -20,7 +20,7 @@ class BaseGeometry:
         """Validates the value argument
 
         """
-        if not all(isinstance(value, int) and isinstance(name, str)):
+        if not isinstance(value, int) or not isinstance(name, str):
             raise TypeError(f"{name} must be an integer")
 
         if value <= 0:
