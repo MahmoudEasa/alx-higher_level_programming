@@ -17,5 +17,5 @@ def lookup(obj):
             list obj
     """
     if isinstance(obj, object):
-        return (list(obj.__dict__))
+        return (list(dir(obj)))
 
