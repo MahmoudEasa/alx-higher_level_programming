@@ -40,4 +40,19 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 Traceback (most recent call last):
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
+>>> doc1 = __import__("7-base_geometry").__doc__
+>>> len(doc1) > 1
+True
+
+>>> doc2 = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(doc2) > 1
+True
+
+>>> doc3 = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(doc3) > 1
+True
+
+>>> doc4 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(doc4) > 1
+True
 
