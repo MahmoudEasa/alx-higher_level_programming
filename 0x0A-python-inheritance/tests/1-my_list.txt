@@ -4,6 +4,12 @@
 
 >>> my_list = MyList()
 
+>>> print(my_list)
+[]
+
+>>> my_list.print_sorted()
+[]
+
 >>> my_list.append(10)
 
 >>> my_list.append(11)

@@ -20,3 +20,5 @@ class MyList(list):
         """
         if len(self):
             print(sorted(self))
+        else:
+            print("[]")
