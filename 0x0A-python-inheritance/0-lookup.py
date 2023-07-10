@@ -18,4 +18,3 @@ def lookup(obj):
     """
     if isinstance(obj, object):
         return (list(dir(obj)))
-
