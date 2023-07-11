@@ -19,7 +19,7 @@ class Student:
 
     def to_json(self, attrs=None):
         student = {}
-        if type(attrs) == list and len(attrs) > 0:
+        if type(attrs) == list:
             for arg in attrs:
                 if arg in list(self.__dict__.keys()):
                     student[arg] = self.__dict__[arg]
