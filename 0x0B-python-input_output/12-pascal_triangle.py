@@ -10,6 +10,9 @@ def pascal_triangle(n):
         Args:
             n (int): integer
     """
+    if n <= 0:
+        return ([])
+
     result = [[1]]
     for i in range(n - 1):
         prev = 0
