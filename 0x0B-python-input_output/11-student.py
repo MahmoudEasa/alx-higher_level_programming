@@ -44,4 +44,5 @@ class Student:
                 json (dict): The dectionary
         """
 
-        self.__dict__ = json
+        if type(json) == dict:
+            self.__dict__ = json
