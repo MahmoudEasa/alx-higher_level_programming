@@ -45,4 +45,6 @@ class Student:
         """
 
         if type(json) == dict:
-            self.__dict__ = json
+            for key in list(json.keys()):
+                if key[0:2] != "__" and key in list(self.__dict__.keys()):
+                    self.__dict__[key] = json[key]
