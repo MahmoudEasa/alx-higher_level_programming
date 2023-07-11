@@ -5,7 +5,7 @@
 
 
 def read_file(filename=""):
-    """Module to reads a text file (UTF8) and prints it to stdout
+    """Function to reads a text file (UTF8) and prints it to stdout
 
         Args:
             filename (str): the file name

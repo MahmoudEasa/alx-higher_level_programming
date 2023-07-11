@@ -5,7 +5,7 @@
 
 
 def write_file(filename="", text=""):
-    """Module to writes a string to a text file (UTF8)
+    """Function to writes a string to a text file (UTF8)
         and returns the number of characters written
 
         Args:
