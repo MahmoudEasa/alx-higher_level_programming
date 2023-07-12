@@ -42,7 +42,7 @@ def main():
             else:
                 lines += 1
             if len(line):
-                inputs = line.split(" ")
+                inputs = line.split()
 
                 try:
                     file_size += int(inputs[-1])
@@ -56,6 +56,7 @@ def main():
                         break
     except KeyboardInterrupt:
         print_status(file_size, status_obj)
+        raise
 
 
 if __name__ == "__main__":
