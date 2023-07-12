@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Module to reads stdin line by line and computes metrics
 """
-import sys
-import subprocess
 
 
 file_size = 0
@@ -34,7 +32,8 @@ try:
         lines += 1
         if lines == 10:
             print_status()
-            lines = 0
+            lines = 1
+        print(lines)
         if len(input_str):
             inputs = input_str.split(" ")
             file_size += int(inputs[-1])
