@@ -35,7 +35,7 @@ if __name__ == "__main__":
                 403: 0,
                 404: 0,
                 405: 0,
-                500: 0,
+                500: 0
             }
 
     try:
@@ -44,19 +44,18 @@ if __name__ == "__main__":
             if lines == 10:
                 print_status(file_size, status_obj)
                 lines = 0
-            if len(line):
-                inputs = line.split()
+            inputs = line.split()
 
-                try:
-                    file_size += int(inputs[-1])
-                    st = int(inputs[-2])
-                except (ValueError, TypeError):
-                    pass
+            try:
+                file_size += int(inputs[-1])
+                st = int(inputs[-2])
+            except (ValueError, TypeError):
+                pass
 
-                for status in list(status_obj.keys()):
-                    if st == status:
-                        status_obj[status] += 1
-                        break
+            for status in list(status_obj.keys()):
+                if st == status:
+                    status_obj[status] += 1
+                    break
     except KeyboardInterrupt:
         print_status(file_size, status_obj)
         raise
