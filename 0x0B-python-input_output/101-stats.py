@@ -13,11 +13,15 @@ import sys
 def print_status(file_size, status_obj):
     """Function to print result
 
+        Args:
+            file_size (int): The file size
+            status_obj (object): The object
+
     """
-    print(f"File size: {file_size}")
+    print("File size: {}".format(file_size))
     for status in list(status_obj.keys()):
         if status_obj[status] > 0:
-            print(f"{status}: {status_obj[status]}")
+            print("{}: {}".format(status, status_obj[status]))
 
 
 if __name__ == "__main__":
