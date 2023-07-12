@@ -7,7 +7,6 @@ prints the following statistics:
     - Total file size up to that point.
     - Count of read status codes up to that point.
 """
-import sys
 
 
 def print_status(file_size, status_obj):
@@ -16,7 +15,6 @@ def print_status(file_size, status_obj):
         Args:
             file_size (int): The file size
             status_obj (object): The object
-
     """
     print("File size: {}".format(file_size))
     for status in list(status_obj.keys()):
@@ -25,6 +23,8 @@ def print_status(file_size, status_obj):
 
 
 if __name__ == "__main__":
+    import sys
+
     file_size = 0
     lines = 0
     status_obj = {
@@ -40,11 +40,10 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
+            lines += 1
             if lines == 10:
                 print_status(file_size, status_obj)
-                lines = 1
-            else:
-                lines += 1
+                lines = 0
             if len(line):
                 inputs = line.split()
 
