@@ -20,6 +20,8 @@ status_obj = {
 
 
 def print_status():
+    """Function to print result
+    """
     print(f"File size: {file_size}")
     for status in list(status_obj.keys()):
         if status_obj[status] > 0:
@@ -30,7 +32,7 @@ try:
     while True:
         input_str = input()
         lines += 1
-        if lines == 9:
+        if lines == 10:
             print_status()
             lines = 0
         if len(input_str):
