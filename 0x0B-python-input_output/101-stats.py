@@ -15,7 +15,7 @@ def print_status(file_size, status_obj):
     print(f"File size: {file_size}")
     for status in list(status_obj.keys()):
         if status_obj[status] > 0:
-            print(f"{status}: {status_obj[status]}"))
+            print(f"{status}: {status_obj[status]}")
 
 
 if __name__ == "__main__":
