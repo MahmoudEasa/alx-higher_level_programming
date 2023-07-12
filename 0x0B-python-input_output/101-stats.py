@@ -30,7 +30,7 @@ try:
     while True:
         input_str = input()
         lines += 1
-        if lines == 10:
+        if lines == 9:
             print_status()
             lines = 0
         if len(input_str):
