@@ -43,8 +43,13 @@ def main():
                 lines += 1
             if len(line):
                 inputs = line.split(" ")
-                file_size += int(inputs[-1])
-                st = int(inputs[-2])
+
+                try:
+                    file_size += int(inputs[-1])
+                    st = int(inputs[-2])
+                except (ValueError, TypeError):
+                    raise
+
                 for status in list(status_obj.keys()):
                     if st == status:
                         status_obj[status] += 1
