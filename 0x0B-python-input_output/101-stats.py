@@ -2,10 +2,6 @@
 
 """Module to reads stdin line by line and computes metrics
 
-After every ten lines or the input of a keyboard interruption (CTRL + C),
-prints the following statistics:
-    - Total file size up to that point.
-    - Count of read status codes up to that point.
 """
 
 
@@ -16,10 +12,10 @@ def print_status(file_size, status_obj):
             file_size (int): The file size
             status_obj (object): The object
     """
-    print("File size: {}".format(file_size))
+    print(f"File size: {file_size}")
     for status in list(status_obj.keys()):
         if status_obj[status] > 0:
-            print("{}: {}".format(status, status_obj[status]))
+            print(f"{status}: {status_obj[status]}"))
 
 
 if __name__ == "__main__":
