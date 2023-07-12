@@ -40,10 +40,12 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            lines += 1
             if lines == 10:
                 print_status(file_size, status_obj)
-                lines = 0
+                lines = 1
+            else:
+                lines += 1
+
             inputs = line.split()
 
             try:
@@ -56,6 +58,7 @@ if __name__ == "__main__":
                 if st == status:
                     status_obj[status] += 1
                     break
+        print_status(file_size, status_obj)
     except KeyboardInterrupt:
         print_status(file_size, status_obj)
         raise
