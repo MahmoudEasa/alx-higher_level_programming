@@ -20,7 +20,7 @@ def print_status(file_size, status_obj):
             print(f"{status}: {status_obj[status]}")
 
 
-def main():
+if __name__ == "__main__":
     file_size = 0
     lines = 0
     status_obj = {
@@ -57,7 +57,3 @@ def main():
     except KeyboardInterrupt:
         print_status(file_size, status_obj)
         raise
-
-
-if __name__ == "__main__":
-    main()
