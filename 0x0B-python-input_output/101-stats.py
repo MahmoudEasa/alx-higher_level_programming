@@ -33,7 +33,6 @@ try:
         if lines == 10:
             print_status()
             lines = 1
-        print(lines)
         if len(input_str):
             inputs = input_str.split(" ")
             file_size += int(inputs[-1])
