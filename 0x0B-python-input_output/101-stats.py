@@ -44,11 +44,8 @@ if __name__ == "__main__":
 
             inputs = line.split()
 
-            try:
-                file_size += int(inputs[-1])
-                st = int(inputs[-2])
-            except (ValueError, TypeError):
-                raise
+            file_size += int(inputs[-1])
+            st = int(inputs[-2])
 
             for status in list(status_obj.keys()):
                 if st == status:
