@@ -48,7 +48,7 @@ if __name__ == "__main__":
                 file_size += int(inputs[-1])
                 st = int(inputs[-2])
             except (ValueError, TypeError):
-                pass
+                raise
 
             for status in list(status_obj.keys()):
                 if st == status:
