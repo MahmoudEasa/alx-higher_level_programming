@@ -44,8 +44,14 @@ if __name__ == "__main__":
 
             inputs = line.split()
 
-            file_size += int(inputs[-1])
-            st = int(inputs[-2])
+            input_size = inputs[-1]
+            input_stats = inputs[-2]
+
+            if not input_size.isdigit() or not input_stats.isdigit():
+                raise ValueError
+
+            file_size += int(input_size)
+            st = int(input_stats)
 
             for status in list(status_obj.keys()):
                 if st == status:
