@@ -47,9 +47,6 @@ if __name__ == "__main__":
             input_size = inputs[-1]
             input_stats = inputs[-2]
 
-            if not input_size.isdigit() or not input_stats.isdigit():
-                raise ValueError
-
             file_size += int(input_size)
             st = int(input_stats)
 
