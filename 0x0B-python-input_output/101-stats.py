@@ -36,10 +36,11 @@ def main():
 
     try:
         for line in sys.stdin:
-            lines += 1
             if lines == 10:
                 print_status(file_size, status_obj)
                 lines = 1
+            else:
+                lines += 1
             if len(line):
                 inputs = line.split(" ")
                 file_size += int(inputs[-1])
