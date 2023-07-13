@@ -43,12 +43,15 @@ if __name__ == "__main__":
                 lines += 1
 
             inputs = line.split()
+            st = 0
 
-            input_size = inputs[-1]
-            input_stats = inputs[-2]
-
-            file_size += int(input_size)
-            st = int(input_stats)
+            try:
+                input_size = inputs[-1]
+                input_stats = inputs[-2]
+                file_size += int(input_size)
+                st = int(input_stats)
+            except (TypeError, ValueError, IndexError):
+                pass
 
             for status in list(status_obj.keys()):
                 if st == status:
