@@ -77,3 +77,55 @@ class Rectangle(Base):
             self.__y = value
         else:
             raise TypeError("y must be an integer")
+
+    def area(self):
+        """ Return area value of th Rectangle """
+        return (self.__width * self.__height)
+
+    def display(self):
+        """Prints in stdout the rectangle instance with the character #
+        """
+
+        if (self.__height and self.__width):
+            for h in range(self.__y):
+                print()
+
+            for i in range(self.__height):
+                print(" " * self.__x, end="")
+                for j in range(self.__width):
+                    print("#", end="")
+                print()
+
+    def __str__(self):
+        return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
+- {self.__width}/{self.__height}")
+
+    def update(self, *args, **kwargs):
+        """Assigns an argument args to each attribute
+            or assigns a key/value argument kwargs to attributes
+
+            Args:
+                args (list): list of values
+                kwargs (dict): dictionary of keys and values
+        """
+
+        args_len = len(args)
+        kwargs_len = len(kwargs)
+        dics = list(self.__dict__.keys())
+
+        if (args_len):
+            self.__dict__['id'] = args[0]
+
+            for i in range(1, args_len):
+                if isinstance(args[i], int):
+                    self.__dict__[dics[i]] = args[i]
+
+        elif (kwargs_len):
+            for key, val in kwargs.items():
+                if key != 'id':
+                    attr = f"_Rectangle__{key}"
+
+                if key == 'id':
+                    self.__dict__[key] = val
+                elif attr in dics and isinstance(val, int):
+                    self.__dict__[f"_Rectangle__{key}"] = val
