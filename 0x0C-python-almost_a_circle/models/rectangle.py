@@ -129,3 +129,15 @@ class Rectangle(Base):
                     self.__dict__[key] = val
                 elif attr in dics and isinstance(val, int):
                     self.__dict__[f"_Rectangle__{key}"] = val
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle
+        """
+        res = {
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y
+            }
+        return (res)
