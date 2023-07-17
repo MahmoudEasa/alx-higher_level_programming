@@ -36,14 +36,8 @@ class Base:
                     representation of list_dictionaries
         """
 
-        if list_dictionaries is None:
+        if list_dictionaries is None or list_dictionaries == "[]":
             return ("[]")
-
-        if isinstance(list_dictionaries, list):
-            list_len = len(list_dictionaries)
-
-            if list_len == 0:
-                return ("[]")
 
             return (json.dumps(list_dictionaries))
 
