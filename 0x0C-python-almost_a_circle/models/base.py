@@ -90,11 +90,14 @@ class Base:
         """Returns an instance with all attributes already set
         """
 
-        if isinstance(dictionary, dict):
+        if cls.__name__ == "Rectangle"
             dummy = cls(1, 1, 0, 0)
-            dummy.update(**dictionary)
+        else:
+            dummy = cls(1)
 
-            return (dummy)
+        dummy.update(**dictionary)
+
+        return (dummy)
 
     @classmethod
     def load_from_file(cls):
