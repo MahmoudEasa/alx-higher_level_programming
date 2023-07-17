@@ -66,3 +66,66 @@ class Base:
 
         with open(file_name, "w") as f:
             f.write(json_str)
+
+    def from_json_string(json_string):
+        """returns the list of the JSON string
+                representation json_string
+
+            Args:
+                json_string (str): string representing a list of dictionaries
+        """
+
+        if json_string is None:
+            return ([])
+
+        try:
+            return (json.loads(json_string))
+        except json.decoder.JSONDecodeError:
+            return ([])
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes already set
+        """
+
+        dummy = cls(1, 1, 0, 0)
+        dummy.update(**dictionary)
+
+        return (dummy)
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances
+        """
+        file_name = cls.__name__ + ".json"
+
+        try:
+            with open(file_name, "r") as f:
+                data = Base.from_json_string(f.read())
+        except FileNotFoundError:
+            return ([])
+
+        result = []
+
+        for obj in data:
+            new_obj = cls.create(**obj)
+            result.append(new_obj)
+
+        return (result)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes in CSV
+        """
+        pass
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes in CSV
+        """
+        pass
+
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares
+        """
+        pass
