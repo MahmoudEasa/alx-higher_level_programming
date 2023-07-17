@@ -106,7 +106,7 @@ class TestRectangle(unittest.TestCase):
         """Test rectangle update
         """
         r1 = Rectangle(10, 10, 10, 10)
-        res = "[Rectangle] (19) 10/10 - 10/10\n"
+        res = "[Rectangle] (21) 10/10 - 10/10\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
         self.assertEqual(str_out.getvalue(), res)
@@ -164,6 +164,39 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
         self.assertEqual(str_out.getvalue(), res)
+
+    def test_rectangle_to_dictionary(self):
+        """Test rectangle to_dictionary
+        """
+        r1 = Rectangle(10, 2, 1, 9)
+        res = "[Rectangle] (19) 1/9 - 10/2\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(r1)
+        self.assertEqual(str_out.getvalue(), res)
+
+        r1_dictionary = r1.to_dictionary()
+        res = "{'id': 19, 'width': 10, 'height': 2, 'x': 1, 'y': 9}\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(r1_dictionary)
+        self.assertEqual(str_out.getvalue(), res)
+        res = "<class 'dict'>\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(type(r1_dictionary))
+        self.assertEqual(str_out.getvalue(), res)
+
+        r2 = Rectangle(1, 1)
+        res = "[Rectangle] (20) 0/0 - 1/1\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(r2)
+        self.assertEqual(str_out.getvalue(), res)
+
+        r2.update(**r1_dictionary)
+        res = "[Rectangle] (19) 1/9 - 10/2\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(r2)
+        self.assertEqual(str_out.getvalue(), res)
+
+        self.assertFalse(r1 == r2)
 
 
 if __name__ == '__main__':

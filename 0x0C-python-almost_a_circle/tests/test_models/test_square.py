@@ -18,7 +18,7 @@ class TestSquare(unittest.TestCase):
         """Test square
         """
         r1 = Square(5)
-        res = "[Square] (20) 0/0 - 5\n"
+        res = "[Square] (22) 0/0 - 5\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
         self.assertEqual(str_out.getvalue(), res)
@@ -31,7 +31,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), res)
 
         r1 = Square(2, 2)
-        res = "[Square] (21) 2/0 - 2\n"
+        res = "[Square] (23) 2/0 - 2\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
         self.assertEqual(str_out.getvalue(), res)
@@ -44,7 +44,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), res)
 
         r1 = Square(3, 1, 3)
-        res = "[Square] (22) 1/3 - 3\n"
+        res = "[Square] (24) 1/3 - 3\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
         self.assertEqual(str_out.getvalue(), res)
@@ -99,7 +99,7 @@ class TestSquare(unittest.TestCase):
         """Test Square Size
         """
         s1 = Square(5)
-        res = "[Square] (30) 0/0 - 5\n"
+        res = "[Square] (32) 0/0 - 5\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
         self.assertEqual(str_out.getvalue(), res)
@@ -107,7 +107,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 5)
 
         s1.size = 10
-        res = "[Square] (30) 0/0 - 10\n"
+        res = "[Square] (32) 0/0 - 10\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
         self.assertEqual(str_out.getvalue(), res)
@@ -116,7 +116,7 @@ class TestSquare(unittest.TestCase):
         """Test Square update
         """
         s1 = Square(5)
-        res = "[Square] (33) 0/0 - 5\n"
+        res = "[Square] (35) 0/0 - 5\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
         self.assertEqual(str_out.getvalue(), res)
@@ -167,13 +167,13 @@ class TestSquare(unittest.TestCase):
         """Test Square to_dictionary
         """
         s1 = Square(10, 2, 1)
-        res = "[Square] (31) 2/1 - 10\n"
+        res = "[Square] (33) 2/1 - 10\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
         self.assertEqual(str_out.getvalue(), res)
 
         s1_dictionary = s1.to_dictionary()
-        res = "{'id': 31, 'size': 10, 'x': 2, 'y': 1}\n"
+        res = "{'id': 33, 'size': 10, 'x': 2, 'y': 1}\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1_dictionary)
         self.assertEqual(str_out.getvalue(), res)
@@ -183,13 +183,13 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), res)
 
         s2 = Square(1, 1)
-        res = "[Square] (32) 1/0 - 1\n"
+        res = "[Square] (34) 1/0 - 1\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s2)
         self.assertEqual(str_out.getvalue(), res)
 
         s2.update(**s1_dictionary)
-        res = "[Square] (31) 2/1 - 10\n"
+        res = "[Square] (33) 2/1 - 10\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s2)
         self.assertEqual(str_out.getvalue(), res)
