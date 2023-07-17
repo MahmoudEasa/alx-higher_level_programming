@@ -15,6 +15,8 @@ class TestRectangle(unittest.TestCase):
     """
 
     def test_rectangle(self):
+        """Test rectangle
+        """
         r1 = Rectangle(10, 2)
         self.assertEqual(r1.id, 5)
         r2 = Rectangle(2, 10)
@@ -29,6 +31,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r6.id, "Mahmoud")
 
     def test_rectangle_err(self):
+        """Test rectangle errors
+        """
         with self.assertRaises(TypeError):
             Rectangle(10, "2")
 
@@ -44,6 +48,8 @@ class TestRectangle(unittest.TestCase):
             Rectangle(10, 2, 3, -1)
 
     def test_rectangle_area(self):
+        """Test rectangle area
+        """
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
         r2 = Rectangle(2, 10)
@@ -52,6 +58,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.area(), 56)
 
     def test_rectangle_display(self):
+        """Test rectangle display
+        """
         r1 = Rectangle(4, 6)
         output = "####\n####\n####\n####\n####\n####\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
@@ -65,6 +73,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), output)
 
     def test_rectangle_str(self):
+        """Test rectangle str
+        """
         r1 = Rectangle(4, 6, 2, 1, 12)
         output = "[Rectangle] (12) 2/1 - 4/6\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
@@ -78,6 +88,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), output)
 
     def test_rectangle_display2(self):
+        """Test rectangle display
+        """
         r1 = Rectangle(2, 3, 2, 2)
         output = "\n\n  ##\n  ##\n  ##\n"
         with patch('sys.stdout', new=StringIO()) as str_out:

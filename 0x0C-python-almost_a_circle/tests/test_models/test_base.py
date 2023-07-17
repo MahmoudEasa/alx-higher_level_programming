@@ -13,6 +13,9 @@ class TestBase(unittest.TestCase):
     """
 
     def test_base(self):
+        """Function to test base
+        """
+
         b1 = Base()
         self.assertEqual(b1.id, 1)
         b2 = Base()

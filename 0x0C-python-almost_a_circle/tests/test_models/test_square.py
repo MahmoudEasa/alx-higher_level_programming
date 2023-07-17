@@ -15,6 +15,8 @@ class TestSquare(unittest.TestCase):
     """
 
     def test_square(self):
+        """Test square
+        """
         r1 = Square(10, 2, 0, 5)
         self.assertEqual(r1.id, 5)
         r2 = Square(2, 10, 0, 6)
@@ -29,6 +31,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r6.id, "Mahmoud")
 
     def test_square_err(self):
+        """Test square errors
+        """
         with self.assertRaises(TypeError):
             Square(10, "2")
 
@@ -41,6 +45,8 @@ class TestSquare(unittest.TestCase):
             r.x = {}
 
     def test_square_area(self):
+        """Test square area
+        """
         r1 = Square(5)
         self.assertEqual(r1.area(), 25)
         r2 = Square(2, 2)
