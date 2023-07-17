@@ -117,13 +117,22 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Serializes in CSV
         """
-        pass
+        file_name = cls.__name__ + ".json"
+        json_arr = []
+        if isinstance(list_objs, list) and len(list_objs) > 0:
+            for obj in list_objs:
+                json_arr.append(obj.to_dictionary())
+
+        json_str = Base.to_json_string(json_arr)
+
+        with open(file_name, "w") as f:
+            f.write(json_str)
 
     @classmethod
     def load_from_file_csv(cls):
         """Deserializes in CSV
         """
-        pass
+        file_name = cls.__name__ + ".json"
 
     def draw(list_rectangles, list_squares):
         """Opens a window and draws all the Rectangles and Squares
