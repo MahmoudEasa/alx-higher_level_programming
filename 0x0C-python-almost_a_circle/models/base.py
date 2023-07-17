@@ -26,12 +26,28 @@ class Base:
     def to_json_string(list_dictionaries):
         """Returns the JSON string representation of list_dictionaries
 
+            Args:
+                list_dictionaries (list): list of dictionaries
+
+            Return:
+                If list_dictionaries is None or empty,
+                    return the string: "[]"
+                Otherwise, return the JSON string
+                    representation of list_dictionaries
         """
 
-        if not list_dictionaries or list_dictionaries == []:
+        if list_dictionaries is None:
             return ("[]")
 
-        return (json.dumps(list_dictionaries))
+        if isinstance(list_dictionaries, list):
+            list_len = len(list_dictionaries)
+
+            if list_len == 0:
+                return ("[]")
+
+            return (json.dumps(list_dictionaries))
+        else:
+            return ("[]")
 
     @classmethod
     def save_to_file(cls, list_objs):
