@@ -123,7 +123,7 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Serializes in CSV
         """
-        file_name = cls.__name__ + ".scv"
+        file_name = cls.__name__ + ".csv"
         json_arr = []
         if isinstance(list_objs, list) and len(list_objs) > 0:
             for obj in list_objs:
@@ -138,7 +138,7 @@ class Base:
     def load_from_file_csv(cls):
         """Deserializes in CSV
         """
-        file_name = cls.__name__ + ".scv"
+        file_name = cls.__name__ + ".csv"
         try:
             with open(file_name, "r") as f:
                 data = Base.from_json_string(f.read())
