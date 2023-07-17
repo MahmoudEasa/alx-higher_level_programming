@@ -90,10 +90,11 @@ class Base:
         """Returns an instance with all attributes already set
         """
 
-        dummy = cls(1, 1, 0, 0)
-        dummy.update(**dictionary)
+        if isinstance(dictionary, dict):
+            dummy = cls(1, 1, 0, 0)
+            dummy.update(**dictionary)
 
-        return (dummy)
+            return (dummy)
 
     @classmethod
     def load_from_file(cls):
