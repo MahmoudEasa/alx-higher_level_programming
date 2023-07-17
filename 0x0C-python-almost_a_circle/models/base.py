@@ -90,7 +90,7 @@ class Base:
         """Returns an instance with all attributes already set
         """
 
-        if cls.__name__ == "Rectangle"
+        if cls.__name__ == "Rectangle":
             dummy = cls(1, 1, 0, 0)
         else:
             dummy = cls(1)
