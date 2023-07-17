@@ -26,14 +26,6 @@ class Base:
     def to_json_string(list_dictionaries):
         """Returns the JSON string representation of list_dictionaries
 
-            Args:
-                list_dictionaries (list): list of dictionaries
-
-            Return:
-                If list_dictionaries is None or empty,
-                    return the string: "[]"
-                Otherwise, return the JSON string
-                    representation of list_dictionaries
         """
 
         if not list_dictionaries:
