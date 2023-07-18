@@ -92,9 +92,9 @@ class Base:
         """
 
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1, 0, 0)
+            dummy = cls(1, 1, 0, 0, 99999)
         else:
-            dummy = cls(1)
+            dummy = cls(1, 0, 0, 9999)
 
         dummy.update(**dictionary)
 
