@@ -33,7 +33,7 @@ class TestBase(unittest.TestCase):
         b6 = Base("Mahmoud")
         self.assertEqual(b6.id, "Mahmoud")
 
-    def test_to_json_string(self):
+    def test_base_to_json_string(self):
         """Function to test to_json_string
         """
         r1 = Rectangle(10, 7, 2, 8, 50)
@@ -60,7 +60,7 @@ class TestBase(unittest.TestCase):
             print(type(json_dictionary))
         self.assertEqual(str_out.getvalue(), res)
 
-    def test_save_to_file(self):
+    def test_base_save_to_file(self):
         """Function to test save_to_file
         """
         r1 = Rectangle(10, 7, 2, 8, 51)
@@ -74,7 +74,7 @@ class TestBase(unittest.TestCase):
                 print(file.read())
             self.assertEqual(str_out.getvalue(), res)
 
-    def test_from_json_string(self):
+    def test_base_from_json_string(self):
         """Function to test from_json_string
         """
         list_input = [
@@ -102,7 +102,7 @@ class TestBase(unittest.TestCase):
             print("[{}] {}".format(type(list_output), list_output))
         self.assertEqual(str_out.getvalue(), res)
 
-    def test_create(self):
+    def test_base_create(self):
         """Function to test create
         """
         r1 = Rectangle(3, 5, 1, 0, 55)
