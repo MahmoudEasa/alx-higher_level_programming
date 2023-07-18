@@ -92,7 +92,7 @@ class Base:
         """
 
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1, 0, 0)
+            dummy = cls(1, 1, 0, 0, "dummy")
         else:
             dummy = cls(1)
 
