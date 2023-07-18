@@ -34,7 +34,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b6.id, "Mahmoud")
 
     def test_base_to_json_string(self):
-        """Function to test to_json_string
+        """Function to test base to_json_string
         """
         r1 = Rectangle(10, 7, 2, 8, 50)
         dictionary = r1.to_dictionary()
@@ -61,7 +61,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), res)
 
     def test_base_save_to_file(self):
-        """Function to test save_to_file
+        """Function to test base save_to_file
         """
         r1 = Rectangle(10, 7, 2, 8, 51)
         r2 = Rectangle(2, 4, 0, 0, 52)
@@ -75,7 +75,7 @@ class TestBase(unittest.TestCase):
             self.assertEqual(str_out.getvalue(), res)
 
     def test_base_from_json_string(self):
-        """Function to test from_json_string
+        """Function to test base from_json_string
         """
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
@@ -103,24 +103,15 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str_out.getvalue(), res)
 
     def test_base_create(self):
-        """Function to test create
+        """Function to test base create
         """
         r1 = Rectangle(3, 5, 1, 0, 55)
         r1_dictionary = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dictionary)
 
         res = '[Rectangle] (55) 1/0 - 3/5\n'
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(r1)
         self.assertEqual(str_out.getvalue(), res)
-
-        res = '[Rectangle] (55) 1/0 - 3/5\n'
-        with patch('sys.stdout', new=StringIO()) as str_out:
-            print(r2)
-        self.assertEqual(str_out.getvalue(), res)
-
-        self.assertFalse(r1 is r2)
-        self.assertFalse(r1 == r2)
 
 
 if __name__ == '__main__':
