@@ -5,4 +5,5 @@ const list = require('./100-data.js').list;
 const newList = list.map((i, e) => {
   return (i * e);
 });
+console.log(list);
 console.log(newList);
