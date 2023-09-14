@@ -16,3 +16,6 @@ if __name__ == '__main__':
 
     for data in all_data:
         print(data)
+
+    c.close()
+    db.close()
