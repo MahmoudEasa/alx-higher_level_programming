@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
-"""Script that lists all states with a name starting with N
-    (upper N) from the database hbtn_0e_0_usa
+"""Script that takes in arguments and displays all values in the states
+    table of hbtn_0e_0_usa where name matches the argument.
+    But this time, write one that is safe from MySQL injections
 """
 
 if __name__ == '__main__':
