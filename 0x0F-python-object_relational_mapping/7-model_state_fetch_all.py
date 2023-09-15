@@ -10,7 +10,7 @@ if __name__ == "__main__":
     from model_state import Base, State
 
     engine = create_engine(f"mysql+mysqldb://{sys.argv[1]}\
-    :{sys.argv[2]}@localhost/{sys.argv[3]}", pool_pre_ping=True)
+:{sys.argv[2]}@localhost/{sys.argv[3]}")
 
     Session = sessionmaker(bind=engine)
     session = Session()
