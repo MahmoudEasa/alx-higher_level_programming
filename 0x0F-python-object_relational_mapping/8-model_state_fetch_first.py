@@ -17,4 +17,7 @@ if __name__ == "__main__":
 
     q = session.query(State).first()
 
-    print(f"{q.id}: {q.name}")
+    if q:
+        print(f"{q.id}: {q.name}")
+    else:
+        print("Nothing")
