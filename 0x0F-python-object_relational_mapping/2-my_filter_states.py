@@ -12,7 +12,7 @@ if __name__ == '__main__':
                          password=sys.argv[2], database=sys.argv[3])
 
     c = db.cursor()
-    c.execute("SELECT * FROM states WHERE name = '{}'\
+    c.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'\
               ORDER BY states.id ASC".format(sys.argv[4]))
 
     all_data = c.fetchall()
