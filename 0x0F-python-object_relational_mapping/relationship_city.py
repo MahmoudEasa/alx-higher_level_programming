@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
-"""Python file similar to model_state.py named model_city.py
-    that contains the class definition of a City
+"""Python file similar to model_city.py
 """
-from model_state import Base
+from relationship_state import Base
 from sqlalchemy import Integer, String, Column, ForeignKey
 
 
