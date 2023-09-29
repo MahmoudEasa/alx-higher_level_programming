@@ -3,11 +3,13 @@
     of the X-Request-Id variable found in the header of the response
 """
 
-import urllib.request as req
-import sys
 
-url = sys.argv[1]
+if __name__ == "__main__":
+    import urllib.request as req
+    import sys
 
-with req.urlopen(url) as res:
-    data = res.info()
-    print(data.get("X-Request-Id"))
+    url = sys.argv[1]
+
+    with req.urlopen(url) as res:
+        data = res.info()
+        print(data.get("X-Request-Id"))
