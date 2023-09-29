@@ -8,6 +8,5 @@ if __name__ == "__main__":
     import sys
 
     auth = HTTPBasicAuth(sys.argv[1], sys.argv[2])
-    url = f"https://api.github.com/users/{sys.argv[1]}"
-    req = requests.get(url, auth=auth)
-    print(req.json().get('id'))
+    r = requests.get("https://api.github.com/user", auth=auth)
+    print(r.json().get("id"))
