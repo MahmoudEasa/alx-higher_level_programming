@@ -19,4 +19,4 @@ if __name__ == "__main__":
         print("No result")
     else:
         data = req.json()
-        print(f"[{data['id']}] {data['name']}")
+        print(f"[{data.get('id')}] {data.get('name')}")
