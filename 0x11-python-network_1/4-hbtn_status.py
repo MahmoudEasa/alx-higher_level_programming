@@ -2,12 +2,12 @@
 """Fetches https://alx-intranet.hbtn.io/status
 """
 
-import requests
 
-req = requests.get("https://alx-intranet.hbtn.io/status")
+if __name__ == "__main__":
+    import requests
 
-output = f"""Body response:
-    - type: {type(req.text)}
-    - content: {req.text}"""
+    req = requests.get("https://alx-intranet.hbtn.io/status")
 
-print(output)
+    print("Body response:")
+    print(f"\t- type: {type(req.text)}")
+    print(f"\t- content: {req.text}")

@@ -3,17 +3,19 @@
     of the response (decoded in utf-8)
 """
 
-import urllib.error as err
-import urllib.request as req
-import sys
 
-url = sys.argv[1]
+if __name__ == "__main__":
+    import urllib.error as err
+    import urllib.request as req
+    import sys
 
-re = req.Request(url)
+    url = sys.argv[1]
 
-try:
-    with req.urlopen(re) as res:
-        data = res.read()
-        print(data.decode())
-except err.HTTPError as e:
-    print(f"Error code: {e.getcode()}")
+    re = req.Request(url)
+
+    try:
+        with req.urlopen(re) as res:
+            data = res.read()
+            print(data.decode())
+    except err.HTTPError as e:
+        print(f"Error code: {e.getcode()}")

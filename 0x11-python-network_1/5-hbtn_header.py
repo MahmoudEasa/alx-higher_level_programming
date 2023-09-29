@@ -3,11 +3,11 @@
     variable X-Request-Id in the response header
 """
 
-import requests
-import sys
 
-url = sys.argv[1]
+if __name__ == "__main__":
+    import requests
+    import sys
 
-req = requests.get(url)
-
-print(req.headers['X-Request-Id'])
+    url = sys.argv[1]
+    req = requests.get(url)
+    print(req.headers['X-Request-Id'])

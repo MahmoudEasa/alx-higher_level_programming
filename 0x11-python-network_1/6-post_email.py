@@ -3,12 +3,13 @@
     and finally displays the body of the response
 """
 
-import requests
-import sys
 
-url = sys.argv[1]
-email = sys.argv[2]
+if __name__ == "__main__":
+    import requests
+    import sys
 
-req = requests.post(url, data={'email': email})
+    url = sys.argv[1]
+    email = sys.argv[2]
 
-print(req.text)
+    req = requests.post(url, data={'email': email})
+    print(req.text)

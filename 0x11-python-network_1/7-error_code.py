@@ -2,14 +2,16 @@
 """Sends a request to the URL and displays the body of the response
 """
 
-import requests
-import sys
 
-url = sys.argv[1]
+if __name__ == "__main__":
+    import requests
+    import sys
 
-req = requests.get(url)
+    url = sys.argv[1]
 
-if req.ok:
-    print(req.text)
-else:
-    print(f"Error code: {req.status_code}")
+    req = requests.get(url)
+
+    if req.ok:
+        print(req.text)
+    else:
+        print(f"Error code: {req.status_code}")
